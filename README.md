@@ -1,10 +1,6 @@
 # Nagios
 ITSI correlation searches for Nagios
 
-
-Used with samples files from the the splunk add-on for Nagios Splunk Build Add-On
-https://splunkbase.splunk.com/app/2703/
-
 Documentation for the Add-on here :
 https://docs.splunk.com/Documentation/AddOns/latest/NagiosCore/About
 
@@ -24,40 +20,36 @@ https://docs.splunk.com/Documentation/ITSI/4.3.1/Configure/Correlationsearchover
 
 - How To - 
 
-#First let us ingest the sample files from the Nagios Add-On :
+#First install the Nagios Add-on :
+
+https://splunkbase.splunk.com/app/2703/
+
+Verify that you have an eventgen.conf files and a samples folder 
 
 Please find the samples find in /opt/splunk/etc/apps/Splunk_TA_nagios_core/samples/
 
-service-perfdata.samples for perf data
+service-perfdata.samples for service performance data
 nagios_notifications.samples for Alerts data
 
-1 Ingest Data samples_updated/service-perfdata.samples
 
-2 Monitor 
+#Second install EventGen :
 
-3 Index once 
+http://splunk.github.io/eventgen/SETUP.html#install
 
-4 Next choose your sourcetype 
-Select nagios:core:serviceperf
+make sure to enable the EventGen both in Manage Apps -> SA-EventGen and in Settings->Data Inputs->SA-EventGen
 
-5 Create an index nagios_serviceperf
+Restart your Instance
 
-6 Next review 
-
-7 Next type the search index=nagios_*
-
-Repeat for notifications
-
-find the fields and values 
+Verify that the data is ingested by running the following search index=* spourcetype=nagios*
 
 service_name
 service_shortname are two fields that shows the different KPIs
 
-With this we should be able to use EventGen to continously generate events
-
 #Correlations Searches
 
 you can find the correlations package here 
+
+
 ----
 
 If you want to build your own 
