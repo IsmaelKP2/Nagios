@@ -56,8 +56,8 @@ If you want to build your own
 
 here is the search :
 
-Index=“Nagios_serviceperf_new” | eval norm_severity=case(  service_status==“CRITICAL”,6,
-  service_status==“WARNING”,4,  service_status==“OK”,2)| dedup consecutive=true host_name service_status service_name| eval tmp_entity=host_name | eval sec_grp= “default_itsi_security_group” | ‘match_entities(tmp_entity,sec_group)’| ‘filter_maintenance_entities’
+``Index=“Nagios_serviceperf_new” | eval norm_severity=case(  service_status==“CRITICAL”,6,
+  service_status==“WARNING”,4,  service_status==“OK”,2)| dedup consecutive=true host_name service_status service_name| eval tmp_entity=host_name | eval sec_grp= “default_itsi_security_group” | ‘match_entities(tmp_entity,sec_group)’| ‘filter_maintenance_entities’```
 
 
 First Line I do an eval to map the severity to the severity in ITSI
