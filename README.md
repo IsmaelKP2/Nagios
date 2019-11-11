@@ -47,8 +47,9 @@ service_shortname are two fields that shows the different KPIs
 
 #Correlations Searches
 
-you can find the correlations package here 
+you can find the correlations package in this Github repo 
 
+ItsiDefaultScheduledBackup-1573486962.zip
 
 ----
 
